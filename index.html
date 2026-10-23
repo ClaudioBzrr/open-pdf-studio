@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenPDF Studio — Private, open-source PDF workspace in your browser</title>
+    <meta
+      name="description"
+      content="OpenPDF Studio is a local-first, open-source PDF workspace. Read, annotate, edit, sign, OCR, redact, compress and protect PDFs without uploading them. Free, PWA, works offline."
+    />
+    <meta
+      name="keywords"
+      content="PDF editor, PDF reader, private PDF, offline PDF, open source PDF, browser PDF editor, OCR PDF, redact PDF, sign PDF, PWA, local-first"
+    />
+    <meta name="author" content="Claudio Bzrr" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#0B6E4F" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="canonical" href="https://claudiobzrr.github.io/open-pdf-studio/" />
+    <link rel="alternate" hreflang="en" href="https://claudiobzrr.github.io/open-pdf-studio/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://claudiobzrr.github.io/open-pdf-studio/pt/" />
+    <link rel="alternate" hreflang="x-default" href="https://claudiobzrr.github.io/open-pdf-studio/" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <link rel="preload" as="image" href="./screenshots/viewer-light.webp" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="OpenPDF Studio" />
+    <meta property="og:title" content="OpenPDF Studio — Private PDF workspace" />
+    <meta property="og:description" content="Read, annotate, edit, sign, OCR, redact and protect PDFs entirely in your browser. No upload. No account. Open source." />
+    <meta property="og:url" content="https://claudiobzrr.github.io/open-pdf-studio/" />
+    <meta property="og:image" content="https://claudiobzrr.github.io/open-pdf-studio/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="pt_BR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="OpenPDF Studio — Private PDF workspace" />
+    <meta name="twitter:description" content="A local-first PDF workspace in your browser. Open source, PWA, no uploads." />
+    <meta name="twitter:image" content="https://claudiobzrr.github.io/open-pdf-studio/og-image.png" />
+    <script src="./theme-init.js"></script>
+    <link rel="stylesheet" href="/src/landing.css" />
+    <script type="module" src="/src/landing.ts"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://claudiobzrr.github.io/open-pdf-studio/#software",
+            "name": "OpenPDF Studio",
+            "applicationCategory": "BusinessApplication",
+            "applicationSubCategory": "PDF editor",
+            "operatingSystem": "Web browser, Windows, macOS, Linux, Android, iOS",
+            "url": "https://claudiobzrr.github.io/open-pdf-studio/app/",
+            "downloadUrl": "https://github.com/ClaudioBzrr/open-pdf-studio/releases",
+            "codeRepository": "https://github.com/ClaudioBzrr/open-pdf-studio",
+            "license": "https://opensource.org/licenses/MIT",
+            "isAccessibleForFree": true,
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "description": "Local-first, open-source PDF workspace for reading, annotating, editing, signing, OCR, redaction, compression and AES-256 protection in the browser.",
+            "featureList": [
+              "Local PDF reading and rendering",
+              "Annotations, comments, highlights and freehand drawing",
+              "Page organization, merge, split and extraction",
+              "AcroForm filling and flattening",
+              "Local OCR with searchable PDF output",
+              "AES-256 password protection and permissions",
+              "Irreversible rasterized redaction",
+              "PDF compression",
+              "Visual document comparison",
+              "Offline PWA"
+            ],
+            "screenshot": "https://claudiobzrr.github.io/open-pdf-studio/screenshots/viewer-light.webp",
+            "author": { "@type": "Person", "name": "Claudio Bzrr", "url": "https://github.com/ClaudioBzrr" }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://claudiobzrr.github.io/open-pdf-studio/#website",
+            "url": "https://claudiobzrr.github.io/open-pdf-studio/",
+            "name": "OpenPDF Studio",
+            "inLanguage": ["en", "pt-BR"],
+            "publisher": { "@id": "https://claudiobzrr.github.io/open-pdf-studio/#software" }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://claudiobzrr.github.io/open-pdf-studio/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Is OpenPDF Studio free and open source?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. OpenPDF Studio is MIT licensed and the source code is public on GitHub. There is no account, subscription or document service." }
+              },
+              {
+                "@type": "Question",
+                "name": "Do my PDFs get uploaded to a server?",
+                "acceptedAnswer": { "@type": "Answer", "text": "No. PDF parsing, rendering, annotations, forms, OCR, redaction, compression, encryption and comparison run in your browser. The document never leaves your device." }
+              },
+              {
+                "@type": "Question",
+                "name": "Does OpenPDF Studio work offline?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. It is a PWA. After the first load, the app shell and viewer work offline. OCR language models are cached after first use; download them once while online for fully offline OCR." }
+              },
+              {
+                "@type": "Question",
+                "name": "Can it replace Adobe Acrobat?",
+                "acceptedAnswer": { "@type": "Answer", "text": "It covers the everyday PDF workflow with open-source equivalents: reading, annotation, page organization, forms, OCR, redaction, compression, comparison and AES-256 protection. It does not implement certified PAdES signatures, PDF/A preflight, XFA, 3D/multimedia, Adobe DRM or Document Cloud." }
+              },
+              {
+                "@type": "Question",
+                "name": "Does it support certified digital signatures?",
+                "acceptedAnswer": { "@type": "Answer", "text": "The current signature tool is a visual signature image, not a cryptographic PAdES/ICP-Brasil signature. Certified signatures are on the roadmap and require a certificate provider." }
+              },
+              {
+                "@type": "Question",
+                "name": "How does OCR work without a server?",
+                "acceptedAnswer": { "@type": "Answer", "text": "OCR uses Tesseract.js compiled to WebAssembly. Portuguese and English models are served as static assets and processed locally. No page image is uploaded." }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="logo" href="./" aria-label="OpenPDF Studio home">
+          <span class="logo-mark" aria-hidden="true">P</span>
+          <span>OpenPDF <small>Studio</small></span>
+        </a>
+        <nav class="nav-links" data-nav aria-label="Main navigation">
+          <a href="#features">Features</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#offline">Offline</a>
+          <a href="#faq">FAQ</a>
+          <a href="https://github.com/ClaudioBzrr/open-pdf-studio" rel="noopener">GitHub</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="lang-link" href="./pt/" hreflang="pt-BR" lang="pt-BR">PT</a>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          </button>
+          <button class="theme-toggle mobile-toggle" type="button" data-menu-toggle aria-label="Open navigation" aria-expanded="false">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+          <a class="button primary small" href="./app/">Open app</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="landing">
+      <section class="hero">
+        <div>
+          <span class="eyebrow">Local-first · Open source · PWA</span>
+          <h1>Your PDFs.<br /><span>In your browser.</span></h1>
+          <p class="hero-copy">
+            OpenPDF Studio is a private, open-source PDF workspace. Read, annotate, edit, sign,
+            OCR, redact, compress and protect PDFs without uploading them to a server.
+            Privacy is not a setting — it is the architecture.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="./app/">
+              Open OpenPDF Studio
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="button ghost" href="https://github.com/ClaudioBzrr/open-pdf-studio" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .7a11.3 11.3 0 0 0-3.6 22c.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.3 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.3 11.3 0 0 0 12 .7Z"/></svg>
+              View on GitHub
+            </a>
+            <button class="button ghost" type="button" data-install hidden>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+              Install app
+            </button>
+          </div>
+          <div class="trust-row">
+            <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg> No upload</span>
+            <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12a7 7 0 0 1 14 0M8.5 12a3.5 3.5 0 0 1 7 0"/><circle cx="12" cy="12" r="1"/></svg> Works offline</span>
+            <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> AES-256</span>
+            <span>MIT licensed</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="screenshot-frame">
+            <picture>
+              <source srcset="./screenshots/viewer-dark.webp" media="(prefers-color-scheme: dark)" />
+              <img src="./screenshots/viewer-light.webp" width="1440" height="1000" alt="OpenPDF Studio viewer with a sample PDF, thumbnails, annotation tools and page navigation" />
+            </picture>
+          </div>
+          <span class="floating-badge one"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg> 100% local</span>
+          <span class="floating-badge two"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg> PWA offline</span>
+        </div>
+      </section>
+
+      <section class="section" id="features">
+        <div class="section-head">
+          <span class="eyebrow">A complete workspace</span>
+          <h2>Everything you expect from a PDF app, without the upload button.</h2>
+          <p>OpenPDF Studio combines a fast reader with the tools people actually use every day. Each feature runs locally with open-source libraries and browser APIs.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <span class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></span>
+            <h3>Read and navigate</h3>
+            <p>Sharp rendering, zoom, rotation, thumbnails, outline, metadata, text selection and search with highlights.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m12 19 7-7 3 3-7 7-3-3Z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5Z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></span>
+            <h3>Annotate and edit</h3>
+            <p>Highlights, comments, freehand drawing, shapes, text, images, visual signatures and whiteout. Move, undo and export flattened.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg></span>
+            <h3>Organize pages</h3>
+            <p>Reorder by drag and drop, delete, duplicate, extract, split, merge and rotate pages while preserving metadata.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/><path d="M18 15v6M15 18h6"/></svg></span>
+            <h3>Fill forms</h3>
+            <p>AcroForm text, checkbox, radio, dropdown and list fields. Update appearances, flatten fields and download a filled copy.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 8h10M7 12h7M7 16h4"/></svg></span>
+            <h3>OCR locally</h3>
+            <p>Portuguese and English text recognition with Tesseract.js. Export text or build a searchable PDF with an invisible text layer.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
+            <h3>Protect with AES-256</h3>
+            <p>Open and owner passwords, print/copy/edit permissions, and password removal — all encrypted in browser memory.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2 3 7v6c0 5 3.8 8.2 9 9 5.2-.8 9-4 9-9V7l-9-5Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+            <h3>Redact and compress</h3>
+            <p>Mark areas and apply irreversible rasterized redaction with metadata removal. Compress scans with configurable DPI and JPEG quality.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M21 16v3a2 2 0 0 1-2 2h-3M8 21H5a2 2 0 0 1-2-2v-3"/><path d="M7 12h10M12 7v10"/></svg></span>
+            <h3>Compare versions</h3>
+            <p>Visual page-by-page diff with side-by-side previews and red highlights. Useful for contracts, revisions and proofing.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="privacy">
+        <div class="section-head">
+          <span class="eyebrow">Privacy by architecture</span>
+          <h2>Your document never leaves the tab.</h2>
+          <p>There is no document backend. Parsing, rendering, editing, OCR, encryption and comparison happen in the browser using PDF.js, pdf-lib, Tesseract.js and WebAssembly.</p>
+        </div>
+        <div class="privacy-cards">
+          <article class="privacy-card">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+            <h3>No upload, no account</h3>
+            <p>No login, no subscription, no telemetry. Open a PDF and it stays in memory on your device.</p>
+          </article>
+          <article class="privacy-card">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            <h3>Works offline</h3>
+            <p>Installable PWA. The app shell and viewer work without a network after the first load.</p>
+          </article>
+          <article class="privacy-card">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg>
+            <h3>Auditable source</h3>
+            <p>MIT licensed and public on GitHub. Inspect the code, self-host the static build or fork it.</p>
+          </article>
+        </div>
+        <div class="split" style="margin-top: 26px">
+          <div class="split-panel">
+            <h3>Verify it yourself</h3>
+            <ol class="steps">
+              <li>Open your browser DevTools (F12) and go to Network.</li>
+              <li>Open or drop a PDF and use annotations, OCR or protection.</li>
+              <li>Observe that no request contains the document bytes.</li>
+              <li>Switch offline and keep working on the open document.</li>
+            </ol>
+          </div>
+          <div class="split-panel">
+            <h3>Designed for local-first work</h3>
+            <p>Contracts, medical records, invoices, research and personal documents should not need a cloud round-trip just to be read or annotated.</p>
+            <div class="pill-row">
+              <span class="pill">PDF.js</span>
+              <span class="pill">pdf-lib</span>
+              <span class="pill">Tesseract.js</span>
+              <span class="pill">WebAssembly</span>
+              <span class="pill">Service Worker</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="offline">
+        <div class="section-head">
+          <span class="eyebrow">PWA · Offline · Installable</span>
+          <h2>A desktop-class PDF workspace that installs like an app.</h2>
+          <p>OpenPDF Studio is a Progressive Web App. Install it from your browser, pin it to your dock or home screen, and keep working without a connection.</p>
+        </div>
+        <div class="split">
+          <div class="split-panel">
+            <h3>Install in three steps</h3>
+            <ol class="steps">
+              <li>Open the app in Chrome, Edge, Brave or another Chromium browser.</li>
+              <li>Use the install icon in the address bar, or the “Install app” button on this page.</li>
+              <li>Launch it from your desktop or home screen. The shell is cached for offline use.</li>
+            </ol>
+            <div class="hero-actions">
+              <a class="button primary small" href="./app/">Open the app</a>
+              <button class="button secondary small" type="button" data-install hidden>Install app</button>
+            </div>
+          </div>
+          <div class="split-panel">
+            <h3>Offline behavior, stated honestly</h3>
+            <ul>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Reading, annotations, page operations, forms, protection and comparison work offline.</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> OCR models are cached after first use. Use OCR once online before going offline.</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> PDFs themselves are never cached by the service worker.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="section-head">
+          <span class="eyebrow">Questions, answered</span>
+          <h2>What you should know before using it.</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Is OpenPDF Studio free and open source?</summary>
+            <p>Yes. It is MIT licensed and the source is public on GitHub. There is no account, subscription, document service or paid tier.</p>
+          </details>
+          <details>
+            <summary>Do my PDFs get uploaded to a server?</summary>
+            <p>No. Parsing, rendering, annotations, forms, OCR, redaction, compression, encryption and comparison run in your browser. The document never leaves your device.</p>
+          </details>
+          <details>
+            <summary>Does it work offline?</summary>
+            <p>Yes, as a PWA. After the first load the app shell and viewer are cached. OCR language models are cached after first use, so run OCR once online before relying on offline OCR.</p>
+          </details>
+          <details>
+            <summary>Can it replace Adobe Acrobat?</summary>
+            <p>It covers the everyday workflow with open-source equivalents: reading, annotation, page organization, forms, OCR, redaction, compression, comparison and AES-256 protection. It does not implement certified PAdES signatures, PDF/A preflight, XFA, 3D/multimedia, Adobe DRM or Document Cloud.</p>
+          </details>
+          <details>
+            <summary>Does it support certified digital signatures?</summary>
+            <p>The current signature tool is a visual signature image, not a cryptographic PAdES/ICP-Brasil signature. Certified signatures are on the roadmap and require a certificate provider.</p>
+          </details>
+          <details>
+            <summary>How does OCR work without a server?</summary>
+            <p>OCR uses Tesseract.js compiled to WebAssembly. Portuguese and English models are static assets processed locally. No page image is uploaded.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <span class="eyebrow">Independence</span>
+          <h2>Inspired by the feature surface, not by the code.</h2>
+          <p>OpenPDF Studio is an independent project, not affiliated with Adobe. It does not bypass licenses, DRM or paid features. The goal is to make the everyday PDF workflow private, portable and auditable.</p>
+        </div>
+        <div class="split-panel">
+          <h3>Adobe Acrobat analysis with REA</h3>
+          <p>We inspected the installed Adobe Acrobat 26.2.21931.0 at the component level — PE metadata, resources and plug-in surface — without extracting proprietary code or bypassing licensing. The full report is in the repository.</p>
+          <div class="hero-actions">
+            <a class="button secondary small" href="https://github.com/ClaudioBzrr/open-pdf-studio/blob/main/docs/adobe-acrobat-analysis.md" rel="noopener">Read the analysis</a>
+            <a class="button ghost small" href="https://github.com/ClaudioBzrr/open-pdf-studio" rel="noopener">Browse the source</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <div>
+          <h2>Open a PDF. Keep it private.</h2>
+          <p>No signup, no upload, no server. Just your browser and your document.</p>
+        </div>
+        <a class="button" href="./app/">Launch OpenPDF Studio</a>
+        <a class="button secondary" href="./pt/" hreflang="pt-BR" lang="pt-BR">Ver em português</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div>
+          <a class="logo" href="./" aria-label="OpenPDF Studio home">
+            <span class="logo-mark" aria-hidden="true">P</span>
+            <span>OpenPDF <small>Studio</small></span>
+          </a>
+          <p style="color: var(--muted); font-size: 11px; line-height: 1.6; margin-top: 10px; max-width: 300px;">
+            A local-first PDF workspace. Open source, MIT licensed, and not affiliated with Adobe.
+          </p>
+        </div>
+        <div>
+          <h3>Product</h3>
+          <a href="./app/">Open the app</a>
+          <a href="#features">Features</a>
+          <a href="#offline">Offline PWA</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div>
+          <h3>Project</h3>
+          <a href="https://github.com/ClaudioBzrr/open-pdf-studio" rel="noopener">GitHub</a>
+          <a href="https://github.com/ClaudioBzrr/open-pdf-studio/releases" rel="noopener">Releases</a>
+          <a href="https://github.com/ClaudioBzrr/open-pdf-studio/blob/main/LICENSE" rel="noopener">MIT License</a>
+          <a href="./pt/" hreflang="pt-BR" lang="pt-BR">Português</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> OpenPDF Studio contributors. MIT licensed.</span>
+        <span>Adobe Acrobat is a trademark of Adobe Inc. This project is independent.</span>
+      </div>
+    </footer>
+  </body>
+</html>

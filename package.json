@@ -1,0 +1,47 @@
+{
+  "name": "open-pdf-studio",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Privacy-first, local-first PDF workspace. Read, annotate, edit, sign, OCR, redact, compress and protect PDFs in the browser.",
+  "homepage": "https://claudiobzrr.github.io/open-pdf-studio/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ClaudioBzrr/open-pdf-studio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ClaudioBzrr/open-pdf-studio/issues"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "sample": "node scripts/generate-sample.mjs",
+    "screenshots": "node scripts/capture-screenshots.mjs",
+    "assets": "node scripts/generate-assets.mjs"
+  },
+  "dependencies": {
+    "@cantoo/pdf-lib": "^2.11.1",
+    "idb": "^8.0.4",
+    "jszip": "^3.10.2",
+    "lucide-react": "^1.61.0",
+    "pdfjs-dist": "^5.4.624",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tesseract.js": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "playwright-core": "^1.64.1",
+    "sharp": "^0.35.5",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.7",
+    "vite-plugin-pwa": "^2.0.0",
+    "vitest": "^4.1.12"
+  }
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://claudiobzrr.github.io/open-pdf-studio/sitemap.xml

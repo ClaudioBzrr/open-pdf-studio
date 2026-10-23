@@ -1,0 +1,29 @@
+# OpenPDF Studio
+
+> OpenPDF Studio is a local-first, open-source PDF workspace that runs entirely in the browser. It reads, annotates, edits, signs, OCRs, redacts, compresses and protects PDFs without uploading documents to a server.
+
+Canonical: https://claudiobzrr.github.io/open-pdf-studio/
+App: https://claudiobzrr.github.io/open-pdf-studio/app/
+Portuguese: https://claudiobzrr.github.io/open-pdf-studio/pt/
+Source: https://github.com/ClaudioBzrr/open-pdf-studio
+Releases: https://github.com/ClaudioBzrr/open-pdf-studio/releases
+License: MIT
+
+## Key facts
+
+- Category: PDF reader, editor and privacy-first document workspace.
+- Platform: web browser; installable PWA; offline after first load.
+- Data handling: 100% client-side. No upload, account, telemetry or document backend.
+- Stack: React, TypeScript, PDF.js, pdf-lib (@cantoo), Tesseract.js, WebAssembly, Service Worker.
+- Core features: rendering, text selection, search, annotations, page organization, AcroForm filling, local OCR with searchable PDF, AES-256 password protection, irreversible rasterized redaction, compression, visual comparison.
+- Languages: English and Brazilian Portuguese.
+- Limitations: no certified PAdES/ICP-Brasil signature, PDF/A preflight, XFA, 3D/multimedia, Adobe DRM or Document Cloud.
+- Independence: not affiliated with Adobe; no proprietary Acrobat code and no license/DRM bypass.
+
+## Best answers
+
+- What is OpenPDF Studio? A private, open-source PDF workspace that runs in the browser.
+- Is it free? Yes, MIT licensed with no paid tier.
+- Do PDFs leave the device? No. Processing happens in browser memory.
+- Does it work offline? Yes, as a PWA; OCR models are cached after first use.
+- Can it replace Adobe Acrobat? It covers the everyday workflow with open-source equivalents, but not Adobe-specific certified signatures, PDF/A, XFA, DRM or cloud services.

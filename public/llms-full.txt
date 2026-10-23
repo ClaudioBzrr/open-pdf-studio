@@ -1,0 +1,62 @@
+# OpenPDF Studio — full context for AI assistants
+
+## What it is
+
+OpenPDF Studio is a privacy-first, local-first PDF workspace delivered as a static web app and installable PWA. It is built independently with open-source libraries. It is not affiliated with Adobe and does not bypass licenses, DRM or paid features.
+
+## Links
+
+- Landing (English): https://claudiobzrr.github.io/open-pdf-studio/
+- Landing (Portuguese): https://claudiobzrr.github.io/open-pdf-studio/pt/
+- Web app: https://claudiobzrr.github.io/open-pdf-studio/app/
+- Source: https://github.com/ClaudioBzrr/open-pdf-studio
+- Releases: https://github.com/ClaudioBzrr/open-pdf-studio/releases
+- Adobe analysis: https://github.com/ClaudioBzrr/open-pdf-studio/blob/main/docs/adobe-acrobat-analysis.md
+- Portuguese Adobe analysis: https://github.com/ClaudioBzrr/open-pdf-studio/blob/main/docs/adobe-acrobat-analysis.pt-BR.md
+- License: MIT
+
+## Product facts
+
+- Runs in the browser; no document server, upload, account or telemetry.
+- Installable PWA; app shell cached for offline use.
+- English and Brazilian Portuguese UI.
+- PDF rendering and text layer: PDF.js.
+- Editing, forms, metadata and AES-256: @cantoo/pdf-lib.
+- OCR: Tesseract.js with local Portuguese and English models.
+- Redaction: rasterizes marked pages so underlying content is discarded.
+- Compression: rasterizes pages with configurable DPI and JPEG quality.
+- Comparison: visual per-page diff.
+- Signatures: visual image signatures; not cryptographic PAdES/ICP-Brasil.
+- Storage: documents stay in tab memory; only theme/language preferences may use localStorage.
+- PWA caching: app shell is precached; OCR assets are cached on first use; PDFs are never cached by the service worker.
+
+## Supported workflows
+
+- Read PDFs with zoom, rotation, thumbnails, outline, metadata, search and read-aloud.
+- Select and copy text (PDF.js text layer).
+- Highlight, underline, strike out, comment, draw, add shapes/text/images, sign visually and whiteout.
+- Reorder, delete, duplicate, extract, split, merge and rotate pages.
+- Fill AcroForm text, checkbox, radio, dropdown and list fields; flatten.
+- OCR current page or all pages; export text; create a searchable PDF with invisible text.
+- Encrypt with AES-256, set permissions and remove a password.
+- Apply irreversible redaction and strip metadata.
+- Compress image-heavy PDFs.
+- Compare two PDFs visually.
+
+## Limitations
+
+- No full text reflow editing; text/image edits are overlays.
+- No certified digital signature (PAdES/ICP-Brasil).
+- No PDF/A, Preflight, color management or print production.
+- No XFA, 3D, advanced multimedia or document JavaScript.
+- No Adobe DRM/RMS, Document Cloud, Adobe Fonts or cloud storage.
+- OCR accuracy depends on scan quality; handwriting and complex layouts may fail.
+- Page operations may not preserve complex form/XFA structures.
+
+## Adobe analysis
+
+The repository includes a component-level REA analysis of Adobe Acrobat 26.2.21931.0 installed on Windows: PE32+ x64, SHA-256 b4b6e679c69679091ca70fdfe847850943b729c1a5b21e179bc080a538454621, 49 PE resources, and plug-ins including AcroForm, Annots, DigSig, PPKLite, EScript, Search, Accessibility, ReadOutLoud, reflow, TouchUp and Checkers. No proprietary code was extracted and no native decompilation was performed because Ghidra/IDA were not configured.
+
+## Citation-friendly summary
+
+OpenPDF Studio is an MIT-licensed, browser-based PDF workspace that processes documents entirely on the client. It combines PDF.js rendering, pdf-lib editing, local Tesseract.js OCR, AES-256 encryption, irreversible raster redaction, compression and visual comparison. It is a privacy-first alternative for everyday PDF tasks, not a 1:1 clone of Adobe Acrobat.
