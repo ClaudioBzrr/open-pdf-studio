@@ -103,6 +103,9 @@ export default defineConfig({
   server: {
     port: 5173,
     host: "127.0.0.1",
+    watch: {
+      ignored: ["**/desktop/vendor/**", "**/desktop/target/**", "**/desktop/dist/**"],
+    },
   },
   build: {
     target: "es2022",

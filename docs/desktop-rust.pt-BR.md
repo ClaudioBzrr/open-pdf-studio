@@ -4,7 +4,7 @@
 
 Sim, um app desktop nativo em Rust é viável e uma boa direção de longo prazo. Mas ele deve ser uma **implementação nativa separada**, não um wrapper da versão web. Reutilizar a UI React via Tauri seria um port — exatamente o que você pediu para evitar.
 
-Na v0.1.0, entregamos o app web/PWA. O desktop deve ser um marco separado, porque a paridade completa (visualizador, anotações, formulários, OCR, criptografia, redação, comparação e assinaturas) é um projeto nativo de vários meses.
+Na v0.2.0, o app web/PWA e o primeiro marco do visualizador nativo estão entregues. O desktop é uma implementação separada, não um wrapper da UI React. A paridade completa (formulários, OCR, criptografia, redação, comparação e assinaturas certificadas) continua um roadmap nativo de vários meses.
 
 ## Stack recomendada
 
@@ -70,4 +70,6 @@ Mantenha `pdf-core` independente da UI e testável com PDFs sintéticos. Isso es
 
 ## Status
 
-Não incluído na v0.1.0. O release web/PWA é a entrega atual. O primeiro marco desktop deve ser um visualizador nativo que abre PDFs por padrão, depois edição/segurança.
+Entregue na `v0.2.0` como app nativo Windows x64: `desktop/`, um único crate Rust com `egui`/`eframe` e PDFium. Abre PDFs pela linha de comando ou pelo Explorer, com abas, miniaturas, busca, zoom, rotação de visualização, anotações de retângulo, notas adesivas, extração de páginas e Salvar/Salvar como.
+
+O app é intencionalmente um visualizador/anotador nativo, ainda sem paridade total com o app web. OCR, AES-256, redação, compressão, comparação, assinaturas certificadas, formulários e organização completa de páginas continuam no roadmap. O empacotamento atual é um zip com `openpdf-desktop.exe`, `pdfium.dll`, licenças e scripts de instalar/desinstalar por usuário; MSI/DMG/AppImage e assinatura de código são trabalho futuro.

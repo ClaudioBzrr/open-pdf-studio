@@ -1,9 +1,9 @@
 {
   "name": "open-pdf-studio",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
-  "description": "Privacy-first, local-first PDF workspace. Read, annotate, edit, sign, OCR, redact, compress and protect PDFs in the browser.",
+  "description": "Privacy-first, local-first PDF workspace. Read, annotate, edit, sign, OCR, redact, compress and protect PDFs in the browser, plus a native Rust Windows desktop app.",
   "homepage": "https://claudiobzrr.github.io/open-pdf-studio/",
   "repository": {
     "type": "git",

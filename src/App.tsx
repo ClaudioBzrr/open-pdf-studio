@@ -96,7 +96,7 @@ export default function App() {
   const [loadingMessage, setLoadingMessage] = useState("Abrindo PDF…");
   const [busy, setBusy] = useState(false);
   const [progress, setProgress] = useState<{ message: string; value?: number } | null>(null);
-  const [passwordRequest, setPasswordRequest] = useState<{ bytes: Uint8Array; fileName: string } | null>(null);
+  const [passwordRequest, setPasswordRequest] = useState<{ bytes: Uint8Array; fileName: string; intent?: SidebarTab } | null>(null);
   const [toast, setToast] = useState<ToastMessage | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -106,6 +106,7 @@ export default function App() {
   const [searchBoxes, setSearchBoxes] = useState<Array<{ x: number; y: number; width: number; height: number }>>([]);
   const [speaking, setSpeaking] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const pendingToolRef = useRef<SidebarTab | null>(null);
   const toastId = useRef(0);
 
   const notify = useCallback((message: string, type: "info" | "error" | "success" = "info") => {
@@ -126,7 +127,7 @@ export default function App() {
   }, [toast]);
 
   const openBytes = useCallback(
-    async (bytes: Uint8Array, fileName: string, password?: string) => {
+    async (bytes: Uint8Array, fileName: string, password?: string, intent?: SidebarTab) => {
       setLoading(true);
       setLoadingMessage(t("Abrindo PDF…"));
       try {
@@ -159,11 +160,12 @@ export default function App() {
         setSearchQuery("");
         setSearchHits([]);
         setSearchBoxes([]);
-        setSidebarTab("view");
+        setSidebarTab(intent ?? "view");
+        setSidebarOpen(true);
         notify(t("PDF aberto localmente."), "success");
       } catch (error) {
         if (error instanceof PasswordRequiredError) {
-          setPasswordRequest({ bytes, fileName });
+          setPasswordRequest({ bytes, fileName, intent });
           if (password) notify(t("Senha incorreta. Tente novamente."), "error");
           return;
         }
@@ -176,8 +178,13 @@ export default function App() {
     [notify, t],
   );
 
+  const openFilePicker = useCallback((intent?: SidebarTab) => {
+    pendingToolRef.current = intent ?? null;
+    fileInputRef.current?.click();
+  }, []);
+
   const handleOpenFiles = useCallback(
-    async (files: File[]) => {
+    async (files: File[], intent?: SidebarTab) => {
       const pdfs = files.filter(isPdfFile);
       if (pdfs.length === 0) {
         notify(t("Selecione um arquivo PDF."), "error");
@@ -186,7 +193,7 @@ export default function App() {
       try {
         if (pdfs.length === 1) {
           const bytes = await readFileBytes(pdfs[0]);
-          await openBytes(bytes, pdfs[0].name);
+          await openBytes(bytes, pdfs[0].name, undefined, intent);
           return;
         }
         setLoading(true);
@@ -195,7 +202,7 @@ export default function App() {
           pdfs.map(async (file) => ({ bytes: await readFileBytes(file) })),
         );
         const merged = await mergePdfs(documents);
-        await openBytes(merged.bytes, "documento-mesclado.pdf");
+        await openBytes(merged.bytes, "documento-mesclado.pdf", undefined, intent);
       } catch (error) {
         console.error(error);
         notify(t("Não foi possível abrir/mesclar os arquivos. PDFs protegidos devem ser abertos individualmente."), "error");
@@ -629,7 +636,7 @@ export default function App() {
       const editing = target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.tagName === "SELECT" || target.isContentEditable);
       if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "o") {
         event.preventDefault();
-        fileInputRef.current?.click();
+        openFilePicker();
         return;
       }
       if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "s") {
@@ -669,7 +676,7 @@ export default function App() {
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, [deleteAnnotation, doc, handleDownload, redo, selectedId, undo]);
+  }, [deleteAnnotation, doc, handleDownload, openFilePicker, redo, selectedId, undo]);
 
   useEffect(() => {
     const url = new URL(window.location.href);
@@ -823,7 +830,7 @@ export default function App() {
         sidebarOpen={sidebarOpen}
         canUndo={history.length > 0}
         canRedo={future.length > 0}
-        onOpen={() => fileInputRef.current?.click()}
+        onOpen={() => openFilePicker()}
         onDownload={handleDownload}
         onUndo={undo}
         onRedo={redo}
@@ -877,7 +884,12 @@ export default function App() {
             onToggleReadAloud={toggleReadAloud}
           />
         ) : (
-          <Welcome onOpenFiles={handleOpenFiles} onOpenSample={handleSample} onOpenBlank={handleBlank} />
+          <Welcome
+            onOpenFiles={handleOpenFiles}
+            onOpenSample={handleSample}
+            onOpenBlank={handleBlank}
+            onChooseTool={(tool) => openFilePicker(tool)}
+          />
         )}
       </div>
 
@@ -889,7 +901,9 @@ export default function App() {
         hidden
         onChange={(event) => {
           const files = Array.from(event.target.files ?? []);
-          if (files.length > 0) void handleOpenFiles(files);
+          const intent = pendingToolRef.current ?? undefined;
+          pendingToolRef.current = null;
+          if (files.length > 0) void handleOpenFiles(files, intent);
           event.target.value = "";
         }}
       />
@@ -900,7 +914,7 @@ export default function App() {
           onSubmit={(password) => {
             const request = passwordRequest;
             setPasswordRequest(null);
-            void openBytes(request.bytes, request.fileName, password);
+            void openBytes(request.bytes, request.fileName, password, request.intent);
           }}
           onCancel={() => setPasswordRequest(null)}
         />

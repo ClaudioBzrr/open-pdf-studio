@@ -133,7 +133,10 @@ button, input { font: inherit; }
   background: radial-gradient(circle, color-mix(in srgb, var(--accent) 26%, transparent), transparent 70%);
   filter: blur(8px); z-index: -1;
 }
-.screenshot-frame img { display: block; width: 100%; border-radius: 12px; border: 1px solid var(--border); }
+.screenshot-frame img {
+  display: block; width: 100%; height: auto; aspect-ratio: 1440 / 1000;
+  border-radius: 12px; border: 1px solid var(--border);
+}
 .floating-badge {
   position: absolute; display: flex; align-items: center; gap: 7px;
   padding: 8px 11px; border: 1px solid var(--border); border-radius: 11px;
@@ -200,6 +203,19 @@ button, input { font: inherit; }
 .footer-bottom { max-width: var(--max); margin: 0 auto; padding: 0 22px 26px; color: var(--muted-2); font-size: 10px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
 
 .badge-local { display: inline-flex; align-items: center; gap: 5px; color: var(--primary); background: color-mix(in srgb, var(--primary) 10%, transparent); border: 1px solid color-mix(in srgb, var(--primary) 24%, transparent); border-radius: 999px; padding: 4px 8px; font-size: 9.5px; font-weight: 750; }
+
+.desktop-highlight {
+  background:
+    linear-gradient(150deg, color-mix(in srgb, var(--primary) 10%, var(--surface)), var(--surface) 55%);
+  border-color: color-mix(in srgb, var(--primary) 32%, var(--border));
+}
+.desktop-highlight h3 { font-size: 20px; }
+.desktop-highlight .hero-actions { margin-top: 16px; }
+.download-note { margin-top: 12px; font-size: 10.5px; line-height: 1.55; color: var(--muted-2); }
+.desktop-panel-list { margin-top: 12px; }
+.desktop-shot { margin: 18px 0 0; padding: 6px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); }
+.desktop-shot img { display: block; width: 100%; height: auto; aspect-ratio: 1440 / 771; border-radius: 11px; }
+.desktop-shot figcaption { padding: 9px 8px 4px; color: var(--muted-2); font-size: 10px; text-align: center; }
 
 @media (max-width: 1000px) {
   .hero { grid-template-columns: 1fr; gap: 34px; padding-top: 50px; }

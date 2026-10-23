@@ -36,6 +36,36 @@ const en: Record<string, string> = {
   "Privacidade": "Privacy",
 
   // Welcome
+  "Ferramentas locais · Open source": "Local tools · Open source",
+  "Suas ferramentas de PDF.": "Your PDF toolkit.",
+  "Seus arquivos ficam aqui.": "Your files stay here.",
+  "Escolha uma ferramenta. O OpenPDF Studio abre o seletor de arquivo e leva você direto ao painel certo — sem upload, sem conta, sem servidor.":
+    "Choose a tool. OpenPDF Studio opens the file picker and takes you straight to the right panel — no upload, no account, no server.",
+  "Já tem um PDF?": "Already have a PDF?",
+  "Arraste e solte em qualquer lugar ou abra pelo botão.": "Drag and drop anywhere, or open it with the button.",
+  "PDF de exemplo": "Sample PDF",
+  "PDF em branco": "Blank PDF",
+  "Sem conta. Sem telemetria. Cada ferramenta roda no seu dispositivo.":
+    "No account. No telemetry. Every tool runs on your device.",
+  "Solte o PDF para abrir": "Drop the PDF to open",
+  "Processado no seu dispositivo": "Processed on your device",
+  "Ver o código no GitHub": "View the source on GitHub",
+  "Leia com zoom, miniaturas, sumário, busca e leitura em voz alta.":
+    "Read with zoom, thumbnails, outline, search and read-aloud.",
+  "Marca-texto, comentários, desenho, formas, texto, imagens e assinatura.":
+    "Highlights, comments, drawing, shapes, text, images and signature.",
+  "Reordene, exclua, duplique, extraia, divida, mescle e gire páginas.":
+    "Reorder, delete, duplicate, extract, split, merge and rotate pages.",
+  "Preencha campos AcroForm e exporte os dados do formulário.":
+    "Fill AcroForm fields and export form data.",
+  "Aplique redação irreversível, cubra conteúdo, insira imagens e comprima.":
+    "Apply irreversible redaction, whiteout content, insert images and compress.",
+  "Proteja com AES-256 e defina permissões de impressão, cópia e edição.":
+    "Protect with AES-256 and set print, copy and edit permissions.",
+  "Reconheça texto em português e inglês com Tesseract.js, localmente.":
+    "Recognize Portuguese and English text locally with Tesseract.js.",
+  "Compare duas versões lado a lado com destaque visual das diferenças.":
+    "Compare two versions side by side with visual difference highlighting.",
   "Workspace de PDF open-source": "Open-source PDF workspace",
   "Seus PDFs.": "Your PDFs.",
   "No seu navegador.": "In your browser.",

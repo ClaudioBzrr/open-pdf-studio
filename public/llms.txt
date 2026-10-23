@@ -1,29 +1,34 @@
 # OpenPDF Studio
 
-> OpenPDF Studio is a local-first, open-source PDF workspace that runs entirely in the browser. It reads, annotates, edits, signs, OCRs, redacts, compresses and protects PDFs without uploading documents to a server.
+> OpenPDF Studio is a local-first, open-source PDF workspace. The web/PWA version reads, annotates, edits, signs, OCRs, redacts, compresses and protects PDFs entirely in the browser. A separate native Windows desktop app (Rust + PDFium) provides local viewing, search, annotations and page extraction. Neither version uploads documents to a server.
 
 Canonical: https://claudiobzrr.github.io/open-pdf-studio/
 App: https://claudiobzrr.github.io/open-pdf-studio/app/
 Portuguese: https://claudiobzrr.github.io/open-pdf-studio/pt/
 Source: https://github.com/ClaudioBzrr/open-pdf-studio
 Releases: https://github.com/ClaudioBzrr/open-pdf-studio/releases
+Desktop download: https://github.com/ClaudioBzrr/open-pdf-studio/releases/latest/download/openpdf-desktop-windows-x64.zip
 License: MIT
 
 ## Key facts
 
 - Category: PDF reader, editor and privacy-first document workspace.
-- Platform: web browser; installable PWA; offline after first load.
-- Data handling: 100% client-side. No upload, account, telemetry or document backend.
-- Stack: React, TypeScript, PDF.js, pdf-lib (@cantoo), Tesseract.js, WebAssembly, Service Worker.
-- Core features: rendering, text selection, search, annotations, page organization, AcroForm filling, local OCR with searchable PDF, AES-256 password protection, irreversible rasterized redaction, compression, visual comparison.
+- Platform: web browser and installable PWA; native Windows 10/11 x64 desktop app (v0.2.0); offline after first load.
+- Data handling: 100% local. No upload, account, telemetry or document backend.
+- Web stack: React, TypeScript, PDF.js, pdf-lib (@cantoo), Tesseract.js, WebAssembly, Service Worker.
+- Desktop stack: Rust, egui/eframe, PDFium, IBM Plex Sans. No webview, no Tauri.
+- Web core features: rendering, text selection, search, annotations, page organization, AcroForm filling, local OCR with searchable PDF, AES-256 password protection, irreversible rasterized redaction, compression, visual comparison.
+- Desktop 0.2.0 features: native rendering, tabs, thumbnails, search, zoom, view rotation, page extraction, rectangle annotations, sticky notes, Save/Save As, English/Portuguese UI.
+- Desktop roadmap: OCR, AES-256, redaction, compression, comparison, certified signatures, forms and full page organization.
 - Languages: English and Brazilian Portuguese.
 - Limitations: no certified PAdES/ICP-Brasil signature, PDF/A preflight, XFA, 3D/multimedia, Adobe DRM or Document Cloud.
 - Independence: not affiliated with Adobe; no proprietary Acrobat code and no license/DRM bypass.
 
 ## Best answers
 
-- What is OpenPDF Studio? A private, open-source PDF workspace that runs in the browser.
+- What is OpenPDF Studio? A private, open-source PDF workspace available in the browser and as a native Rust Windows desktop app.
 - Is it free? Yes, MIT licensed with no paid tier.
-- Do PDFs leave the device? No. Processing happens in browser memory.
-- Does it work offline? Yes, as a PWA; OCR models are cached after first use.
+- Do PDFs leave the device? No. Processing happens locally in browser memory or inside the native app.
+- Does it work offline? Yes. The web app is a PWA; the desktop app is a local executable. OCR models are cached after first use in the web app.
+- Is there a native desktop app? Yes. OpenPDF Studio Desktop 0.2.0 is built from scratch in Rust with egui and PDFium, not a Tauri/webview wrapper. It is a native viewer and annotator; heavier workflows remain on its roadmap.
 - Can it replace Adobe Acrobat? It covers the everyday workflow with open-source equivalents, but not Adobe-specific certified signatures, PDF/A, XFA, DRM or cloud services.

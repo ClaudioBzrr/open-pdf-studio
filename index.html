@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OpenPDF Studio — Private, open-source PDF workspace in your browser</title>
+    <title>OpenPDF Studio — Private, open-source PDF workspace</title>
     <meta
       name="description"
-      content="OpenPDF Studio is a local-first, open-source PDF workspace. Read, annotate, edit, sign, OCR, redact, compress and protect PDFs without uploading them. Free, PWA, works offline."
+      content="OpenPDF Studio is a local-first, open-source PDF workspace for the browser and Windows desktop. Read, annotate, edit, sign, OCR, redact, compress and protect PDFs without uploading them. Free, PWA, works offline."
     />
     <meta
       name="keywords"
-      content="PDF editor, PDF reader, private PDF, offline PDF, open source PDF, browser PDF editor, OCR PDF, redact PDF, sign PDF, PWA, local-first"
+      content="PDF editor, PDF reader, private PDF, offline PDF, open source PDF, browser PDF editor, native PDF app, OCR PDF, redact PDF, sign PDF, PWA, local-first"
     />
     <meta name="author" content="Claudio Bzrr" />
     <meta name="robots" content="index,follow,max-image-preview:large" />
@@ -26,7 +26,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="OpenPDF Studio" />
     <meta property="og:title" content="OpenPDF Studio — Private PDF workspace" />
-    <meta property="og:description" content="Read, annotate, edit, sign, OCR, redact and protect PDFs entirely in your browser. No upload. No account. Open source." />
+    <meta property="og:description" content="Read, annotate, edit, sign, OCR, redact and protect PDFs in your browser or native Windows app. No upload. No account. Open source." />
     <meta property="og:url" content="https://claudiobzrr.github.io/open-pdf-studio/" />
     <meta property="og:image" content="https://claudiobzrr.github.io/open-pdf-studio/og-image.png" />
     <meta property="og:image:width" content="1200" />
@@ -35,7 +35,7 @@
     <meta property="og:locale:alternate" content="pt_BR" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="OpenPDF Studio — Private PDF workspace" />
-    <meta name="twitter:description" content="A local-first PDF workspace in your browser. Open source, PWA, no uploads." />
+    <meta name="twitter:description" content="A local-first PDF workspace in your browser and on your desktop. Open source, PWA, no uploads." />
     <meta name="twitter:image" content="https://claudiobzrr.github.io/open-pdf-studio/og-image.png" />
     <script src="./theme-init.js"></script>
     <link rel="stylesheet" href="/src/landing.css" />
@@ -50,7 +50,8 @@
             "name": "OpenPDF Studio",
             "applicationCategory": "BusinessApplication",
             "applicationSubCategory": "PDF editor",
-            "operatingSystem": "Web browser, Windows, macOS, Linux, Android, iOS",
+            "operatingSystem": "Web browser, Windows 10/11 (native desktop app), macOS, Linux, Android, iOS",
+            "softwareVersion": "0.2.0",
             "url": "https://claudiobzrr.github.io/open-pdf-studio/app/",
             "downloadUrl": "https://github.com/ClaudioBzrr/open-pdf-studio/releases",
             "codeRepository": "https://github.com/ClaudioBzrr/open-pdf-studio",
@@ -68,6 +69,7 @@
               "Irreversible rasterized redaction",
               "PDF compression",
               "Visual document comparison",
+              "Native Windows desktop app with PDFium",
               "Offline PWA"
             ],
             "screenshot": "https://claudiobzrr.github.io/open-pdf-studio/screenshots/viewer-light.webp",
@@ -114,6 +116,11 @@
                 "@type": "Question",
                 "name": "How does OCR work without a server?",
                 "acceptedAnswer": { "@type": "Answer", "text": "OCR uses Tesseract.js compiled to WebAssembly. Portuguese and English models are served as static assets and processed locally. No page image is uploaded." }
+              },
+              {
+                "@type": "Question",
+                "name": "Is there a native desktop app?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. OpenPDF Studio Desktop 0.2.0 is a separate native Rust app built with egui and PDFium, not a Tauri or webview wrapper. It currently provides native viewing, search, tabs, thumbnails, rectangle annotations, sticky notes and page extraction. OCR, AES-256, redaction, compression, comparison and certified signatures remain on its roadmap." }
               }
             ]
           }
@@ -132,6 +139,7 @@
           <a href="#features">Features</a>
           <a href="#privacy">Privacy</a>
           <a href="#offline">Offline</a>
+          <a href="#desktop">Desktop</a>
           <a href="#faq">FAQ</a>
           <a href="https://github.com/ClaudioBzrr/open-pdf-studio" rel="noopener">GitHub</a>
         </nav>
@@ -151,12 +159,12 @@
     <main class="landing">
       <section class="hero">
         <div>
-          <span class="eyebrow">Local-first · Open source · PWA</span>
+          <span class="eyebrow">Local-first · Open source · PWA · Desktop</span>
           <h1>Your PDFs.<br /><span>In your browser.</span></h1>
           <p class="hero-copy">
-            OpenPDF Studio is a private, open-source PDF workspace. Read, annotate, edit, sign,
-            OCR, redact, compress and protect PDFs without uploading them to a server.
-            Privacy is not a setting — it is the architecture.
+            OpenPDF Studio is a private, open-source PDF workspace for the browser and the desktop.
+            Read, annotate, edit, sign, OCR, redact, compress and protect PDFs without uploading them
+            to a server. Privacy is not a setting — it is the architecture.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="./app/">
@@ -171,6 +179,10 @@
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
               Install app
             </button>
+            <a class="button ghost" href="#desktop">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+              Desktop app
+            </a>
           </div>
           <div class="trust-row">
             <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg> No upload</span>
@@ -318,6 +330,55 @@
         </div>
       </section>
 
+      <section class="section" id="desktop">
+        <div class="section-head">
+          <span class="eyebrow">Native desktop · Rust + PDFium</span>
+          <h2>The same local-first workspace, now native.</h2>
+          <p>A separate Rust app built with egui and PDFium — no webview, no browser, no upload. Open PDFs from Explorer, work offline, and keep the same open-run design.</p>
+        </div>
+        <div class="split">
+          <div class="split-panel desktop-highlight">
+            <span class="badge-local">Windows x64 · v0.2.0</span>
+            <h3 style="margin-top: 10px;">OpenPDF Studio Desktop</h3>
+            <p>Native rendering, tabs, thumbnails, search, rectangle annotations, sticky notes and page extraction. Save changes directly to the PDF.</p>
+            <ul>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Native tabs, recent files and page thumbnails</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Zoom, view rotation, fit width/page and full-text search</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Rectangle annotations and sticky text notes</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Page extraction, Save and Save As</li>
+            </ul>
+            <div class="hero-actions">
+              <a class="button primary small" href="https://github.com/ClaudioBzrr/open-pdf-studio/releases/latest/download/openpdf-desktop-windows-x64.zip">
+                Download for Windows
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+              </a>
+              <a class="button secondary small" href="https://github.com/ClaudioBzrr/open-pdf-studio/blob/main/desktop/README.md">Desktop README</a>
+            </div>
+            <p class="download-note">Unsigned build. SmartScreen may ask for confirmation on first launch. The zip includes a per-user installer script for the PDF file association.</p>
+          </div>
+          <div class="split-panel">
+            <h3>What is native — and what is next</h3>
+            <p>The desktop app shares the product principles, not the web code. It is a native viewer and annotator today; the heavier workflows remain in the web app while the desktop roadmap catches up.</p>
+            <div class="pill-row">
+              <span class="pill">egui / eframe</span>
+              <span class="pill">PDFium</span>
+              <span class="pill">Rust</span>
+              <span class="pill">No webview</span>
+            </div>
+            <ul>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Works offline, with no account and no telemetry</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> English and Portuguese UI, light and dark themes</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> MIT licensed, source available on GitHub</li>
+            </ul>
+            <p class="download-note"><strong>Desktop roadmap:</strong> OCR, AES-256 protection, redaction, compression, comparison, certified signatures, forms and full page organization.</p>
+          </div>
+        </div>
+        <figure class="desktop-shot">
+          <img src="./screenshots/desktop-dark.webp" width="1440" height="771" loading="lazy" alt="OpenPDF Studio Desktop 0.2.0 showing a native PDF page, thumbnails, search and annotation tools" />
+          <figcaption>OpenPDF Studio Desktop 0.2.0 on Windows 11 — native PDFium rendering, search and annotations.</figcaption>
+        </figure>
+      </section>
+
       <section class="section" id="faq">
         <div class="section-head">
           <span class="eyebrow">Questions, answered</span>
@@ -347,6 +408,10 @@
           <details>
             <summary>How does OCR work without a server?</summary>
             <p>OCR uses Tesseract.js compiled to WebAssembly. Portuguese and English models are static assets processed locally. No page image is uploaded.</p>
+          </details>
+          <details>
+            <summary>Is there a native desktop app?</summary>
+            <p>Yes. OpenPDF Studio Desktop 0.2.0 is a separate native Rust app built with egui and PDFium, not a Tauri or webview wrapper. It currently focuses on native viewing, search, tabs, thumbnails, rectangle annotations, sticky notes and page extraction. OCR, AES-256, redaction, compression, comparison and certified signatures remain on its roadmap; the web app covers them today.</p>
           </details>
         </div>
       </section>

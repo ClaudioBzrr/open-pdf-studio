@@ -2,13 +2,15 @@
 
 ## What it is
 
-OpenPDF Studio is a privacy-first, local-first PDF workspace delivered as a static web app and installable PWA. It is built independently with open-source libraries. It is not affiliated with Adobe and does not bypass licenses, DRM or paid features.
+OpenPDF Studio is a privacy-first, local-first PDF workspace delivered as a static web app, an installable PWA, and a native Windows desktop app. It is built independently with open-source libraries. It is not affiliated with Adobe and does not bypass licenses, DRM or paid features.
 
 ## Links
 
 - Landing (English): https://claudiobzrr.github.io/open-pdf-studio/
 - Landing (Portuguese): https://claudiobzrr.github.io/open-pdf-studio/pt/
 - Web app: https://claudiobzrr.github.io/open-pdf-studio/app/
+- Desktop download (Windows x64): https://github.com/ClaudioBzrr/open-pdf-studio/releases/latest/download/openpdf-desktop-windows-x64.zip
+- Desktop README: https://github.com/ClaudioBzrr/open-pdf-studio/blob/main/desktop/README.md
 - Source: https://github.com/ClaudioBzrr/open-pdf-studio
 - Releases: https://github.com/ClaudioBzrr/open-pdf-studio/releases
 - Adobe analysis: https://github.com/ClaudioBzrr/open-pdf-studio/blob/main/docs/adobe-acrobat-analysis.md
@@ -19,6 +21,8 @@ OpenPDF Studio is a privacy-first, local-first PDF workspace delivered as a stat
 
 - Runs in the browser; no document server, upload, account or telemetry.
 - Installable PWA; app shell cached for offline use.
+- Native Windows 10/11 x64 desktop app (v0.2.0), written in Rust with egui/eframe and PDFium.
+- Desktop is a separate native implementation, not a Tauri or webview wrapper.
 - English and Brazilian Portuguese UI.
 - PDF rendering and text layer: PDF.js.
 - Editing, forms, metadata and AES-256: @cantoo/pdf-lib.
@@ -43,6 +47,15 @@ OpenPDF Studio is a privacy-first, local-first PDF workspace delivered as a stat
 - Compress image-heavy PDFs.
 - Compare two PDFs visually.
 
+### Native desktop workflows (0.2.0)
+
+- Open PDFs from Explorer or the command line and work offline.
+- Native tabs, recent files and page thumbnails.
+- Zoom, fit width, fit page, page navigation, view rotation and full-text search.
+- Rectangle annotations and sticky text notes saved into the PDF.
+- Copy page text, extract the current page, Save and Save As.
+- English/Portuguese UI and light/dark themes.
+
 ## Limitations
 
 - No full text reflow editing; text/image edits are overlays.
@@ -52,6 +65,8 @@ OpenPDF Studio is a privacy-first, local-first PDF workspace delivered as a stat
 - No Adobe DRM/RMS, Document Cloud, Adobe Fonts or cloud storage.
 - OCR accuracy depends on scan quality; handwriting and complex layouts may fail.
 - Page operations may not preserve complex form/XFA structures.
+- Desktop 0.2.0 does not yet implement OCR, AES-256, redaction, compression, comparison, certified signatures, AcroForm filling or full page organization.
+- The desktop build is Windows x64 only and is not code-signed.
 
 ## Adobe analysis
 
@@ -59,4 +74,4 @@ The repository includes a component-level REA analysis of Adobe Acrobat 26.2.219
 
 ## Citation-friendly summary
 
-OpenPDF Studio is an MIT-licensed, browser-based PDF workspace that processes documents entirely on the client. It combines PDF.js rendering, pdf-lib editing, local Tesseract.js OCR, AES-256 encryption, irreversible raster redaction, compression and visual comparison. It is a privacy-first alternative for everyday PDF tasks, not a 1:1 clone of Adobe Acrobat.
+OpenPDF Studio is an MIT-licensed PDF workspace available as a browser PWA and a native Rust desktop app. The web version combines PDF.js rendering, pdf-lib editing, local Tesseract.js OCR, AES-256 encryption, irreversible raster redaction, compression and visual comparison. The desktop version uses egui and PDFium for native rendering, search, annotations and page extraction. Both are privacy-first alternatives for everyday PDF tasks, not 1:1 clones of Adobe Acrobat.

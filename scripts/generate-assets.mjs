@@ -1,5 +1,5 @@
 import sharp from "sharp";
-import { mkdir, unlink } from "node:fs/promises";
+import { access, mkdir, unlink } from "node:fs/promises";
 import { join } from "node:path";
 
 const publicDir = "public";
@@ -98,6 +98,11 @@ await sharp(ogBase)
 
 for (const name of ["viewer-light", "viewer-dark", "welcome-light", "welcome-dark", "mobile-welcome", "mobile-viewer"]) {
   const input = join(screenshotsDir, `${name}.png`);
+  try {
+    await access(input);
+  } catch {
+    continue;
+  }
   try {
     await sharp(input).webp({ quality: 84 }).toFile(join(screenshotsDir, `${name}.webp`));
     await unlink(input);

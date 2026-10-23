@@ -82,6 +82,12 @@ O Adobe Acrobat é um produto nativo e fechado, com recursos pagos ligados a lic
 - Inglês e português do Brasil, alternáveis no app.
 - Temas claro e escuro com a paleta do **Open Run** (verde `#0B6E4F`, coral `#FF7A45`, superfícies quentes).
 
+### App desktop nativo
+- App Rust separado, com `egui`/`eframe` e PDFium — sem webview, sem Tauri.
+- Abas nativas, miniaturas, busca, zoom, rotação de visualização, extração de páginas, anotações de retângulo e notas adesivas.
+- Build Windows x64 0.2.0 com instalador por usuário e script de associação de PDF.
+- Escopo honesto: OCR, AES-256, redação, compressão, comparação, assinaturas certificadas, formulários e organização completa de páginas continuam no roadmap desktop.
+
 ---
 
 ## Modelo de privacidade
@@ -206,11 +212,20 @@ public/
   robots.txt, sitemap.xml
   llms.txt, llms-full.txt    contexto para LLM/GEO
   _headers, 404.html
+desktop/
+  src/main.rs                CLI e inicialização do eframe
+  src/app.rs                 UI nativa: abas, visualizador, busca, anotações
+  src/pdf.rs                 engine PDFium, renderização, salvar/extrair
+  src/theme.rs               paleta Open Run + fontes IBM Plex
+  src/i18n.rs                textos em inglês/português
+  scripts/                   download do PDFium, empacotamento, instalar/desinstalar
+  assets/                    fontes IBM Plex, ícone do app
 docs/
   adobe-acrobat-analysis.md
   adobe-acrobat-analysis.pt-BR.md
   desktop-rust.md
   desktop-rust.pt-BR.md
+  release-v0.2.0.md
 ```
 
 ### Tema
@@ -233,13 +248,20 @@ A paleta segue o design system do **Open Run**:
 - [Adobe Acrobat analysis (EN)](docs/adobe-acrobat-analysis.md)
 - [Arquitetura desktop Rust (PT)](docs/desktop-rust.pt-BR.md)
 - [Desktop Rust architecture (EN)](docs/desktop-rust.md)
+- [Notas do release v0.2.0 (PT/EN)](docs/release-v0.2.0.md)
 - [README em inglês](README.md)
 
 ---
 
 ## App desktop em Rust
 
-Um app desktop nativo em Rust é viável e recomendado como implementação separada — **não** um port Tauri da UI web. A stack proposta é Rust + `egui`/`Slint` + PDFium, com associação de arquivos para abrir PDFs por padrão. A paridade completa é um projeto de vários meses; a v0.1.0 entrega o app web/PWA. Veja [docs/desktop-rust.pt-BR.md](docs/desktop-rust.pt-BR.md).
+A `v0.2.0` entrega o primeiro build desktop nativo: **OpenPDF Studio Desktop**, escrito do zero em Rust com `egui`/`eframe` e PDFium. **Não** é um port Tauri da UI web e não reutiliza o frontend React.
+
+- Download: [openpdf-desktop-windows-x64.zip](https://github.com/ClaudioBzrr/open-pdf-studio/releases/latest/download/openpdf-desktop-windows-x64.zip)
+- Código e instruções de build: [`desktop/README.md`](desktop/README.md)
+- Notas de arquitetura: [docs/desktop-rust.pt-BR.md](docs/desktop-rust.pt-BR.md)
+
+Escopo atual do desktop: visualizador nativo, abas, miniaturas, busca, zoom, rotação de visualização, extração de páginas, anotações de retângulo, notas adesivas, Salvar/Salvar como e interface em inglês/português. OCR, AES-256, redação, compressão, comparação, assinaturas certificadas, formulários e organização completa de páginas continuam no roadmap desktop. O app web continua sendo a referência para esses fluxos.
 
 ---
 
@@ -271,11 +293,16 @@ O REA não tinha Ghidra/IDA configurados; a análise ficou no nível de **identi
 
 ## Releases
 
-A `v0.1.0` é o primeiro release web/PWA. O workflow de release anexa `open-pdf-studio-web.zip` e gera notas em tags `v*`.
+A `v0.2.0` adiciona o primeiro build desktop nativo para Windows. Cada release anexa:
+
+- `open-pdf-studio-web.zip` — build web/PWA estático.
+- `openpdf-desktop-windows-x64.zip` — app desktop nativo em Rust com `pdfium.dll`, licenças e scripts de instalação.
+
+O workflow de release compila os dois assets em tags `v*`.
 
 ```bash
-git tag v0.1.0
-git push origin v0.1.0
+git tag v0.2.0
+git push origin v0.2.0
 ```
 
 ---

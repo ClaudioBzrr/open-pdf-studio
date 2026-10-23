@@ -7,14 +7,14 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: "Release tag (for example v0.1.0)"
+        description: "Release tag (for example v0.2.0)"
         required: true
 
 permissions:
   contents: write
 
 jobs:
-  release:
+  web:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -38,28 +38,79 @@ jobs:
         run: |
           cd dist
           zip -r ../open-pdf-studio-web.zip .
+      - name: Upload web artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-build
+          path: open-pdf-studio-web.zip
+
+  desktop:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+      - name: Cache Rust
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: desktop
+      - name: Fetch PDFium
+        shell: pwsh
+        run: ./desktop/scripts/fetch-pdfium.ps1
+      - name: Build desktop
+        shell: pwsh
+        working-directory: desktop
+        run: cargo build --release
+      - name: Package desktop
+        shell: pwsh
+        run: ./desktop/scripts/package-windows.ps1
+      - name: Upload desktop artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: desktop-build
+          path: desktop/dist/openpdf-desktop-windows-x64.zip
+
+  release:
+    needs: [web, desktop]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
           name: OpenPDF Studio ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
           generate_release_notes: true
-          files: open-pdf-studio-web.zip
+          files: |
+            artifacts/web-build/open-pdf-studio-web.zip
+            artifacts/desktop-build/openpdf-desktop-windows-x64.zip
           body: |
             ## OpenPDF Studio ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
 
-            Private, local-first PDF workspace. Read, annotate, edit, sign, OCR, redact, compress and protect PDFs entirely in the browser.
+            Private, local-first PDF workspace. Use it in the browser or as a native Rust desktop app.
 
-            ### Download
-            - `open-pdf-studio-web.zip`: static web build. Unzip and serve at the root of any static host, or use GitHub Pages.
+            ### Downloads
+            - `open-pdf-studio-web.zip`: static web build and PWA. Unzip and serve at the root of any static host, or use GitHub Pages.
+            - `openpdf-desktop-windows-x64.zip`: native Windows x64 app (Rust + egui + PDFium), including `pdfium.dll` and installer scripts.
+
+            ### Desktop 0.2.0
+            - Native PDF viewer with tabs, zoom, fit width/page, rotation, thumbnails, search and page text copy.
+            - Rectangle annotations and sticky notes saved into the PDF.
+            - Page extraction, Save and Save As, English/Portuguese UI, light/dark theme.
+            - Still on the desktop roadmap: OCR, AES-256, redaction, compression, comparison, certified signatures, forms and full page organization.
 
             ### Dados / Data
-            - 100% client-side: no document upload, account, telemetry or backend.
+            - 100% local: no document upload, account, telemetry or backend.
             - English and Portuguese UI.
-            - PWA offline after first load.
+            - Web app is a PWA and works offline after the first load.
             - MIT licensed.
 
             ### Limites / Limits
+            - The desktop build is Windows x64 only for now and is not code-signed.
             - No certified PAdES/ICP-Brasil signatures.
             - No PDF/A, XFA, 3D/multimedia, Adobe DRM or Document Cloud.
-            - Visual redaction rasterizes marked pages.
+            - Visual redaction in the web app rasterizes marked pages.
