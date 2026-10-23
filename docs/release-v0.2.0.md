@@ -58,7 +58,7 @@ Still on the desktop roadmap: OCR, AES-256 protection, redaction, compression, c
 
 ```text
 a0abc916690c20a87378cb521369859ac5fc3fea8df7f397e7b029c4dc892f13  open-pdf-studio-web.zip
-63b983210378800f42bf0ac7d3069af4ece202f2334ff8cf52d112f613ae8d37  openpdf-desktop-windows-x64.zip
+57687ddf88e6040ee07cdc87bc7c3fa666ca2561e8495901c385af1476914978  openpdf-desktop-windows-x64.zip
 ```
 
 ---
@@ -117,5 +117,5 @@ Continuam no roadmap desktop: OCR, proteção AES-256, redação, compressão, c
 
 ```text
 a0abc916690c20a87378cb521369859ac5fc3fea8df7f397e7b029c4dc892f13  open-pdf-studio-web.zip
-63b983210378800f42bf0ac7d3069af4ece202f2334ff8cf52d112f613ae8d37  openpdf-desktop-windows-x64.zip
+57687ddf88e6040ee07cdc87bc7c3fa666ca2561e8495901c385af1476914978  openpdf-desktop-windows-x64.zip
 ```

@@ -67,7 +67,7 @@ by design: no upload, no account, no telemetry.
 
 ### Build from source
 
-Requirements: Rust 1.85+ with the MSVC toolchain, and the Visual Studio Build
+Requirements: Rust 1.95+ with the MSVC toolchain, and the Visual Studio Build
 Tools with the Windows SDK.
 
 ```powershell
@@ -163,7 +163,7 @@ por princípio: sem upload, sem conta, sem telemetria.
 
 ### Compilar do código-fonte
 
-Requisitos: Rust 1.85+ com toolchain MSVC e Visual Studio Build Tools com o
+Requisitos: Rust 1.95+ com toolchain MSVC e Visual Studio Build Tools com o
 Windows SDK.
 
 ```powershell
