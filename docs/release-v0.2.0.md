@@ -83,7 +83,7 @@ Escrito do zero em Rust com `egui`/`eframe` e PDFium. Não é um port Tauri e n�
 
 - Renderização nativa, abrindo pelo Explorer, arrastando e soltando ou pela linha de comando.
 - Abas, arquivos recentes e miniaturas de páginas.
-- Zoom, ajustar à largura, navegação, rotação de visualização e busca.
+- Zoom, ajustar à largura/página, navegação, rotação de visualização e busca.
 - Copiar o texto da página atual.
 - Anotações de retângulo e notas de texto adesivas salvas no PDF.
 - Extrair a página atual em um novo PDF.
